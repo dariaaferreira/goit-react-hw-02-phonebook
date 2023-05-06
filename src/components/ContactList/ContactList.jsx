@@ -1,23 +1,23 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import { ContactListItem } from '../ContactListItem/ContactListItem';
 
-import { ListItems, Item, Span, Button, Text } from './ContactList.styled';
+import { ListItems, Text } from './ContactList.styled';
 
 const ContactList = ({ contacts, handleDeleteContact }) => {
   return (
     <>
       {contacts.length > 0 ? (
         <ListItems>
-          {contacts.map(({ id, name, number }) => (
-            <Item key={id}>
-              <Span>{name}:</Span> {number}
-              <Button onClick={() => handleDeleteContact(id)}>&#x2715;</Button>
-            </Item>
+          {contacts.map((contact) => (
+            <ContactListItem
+              key={contact.id}
+              contact={contact}
+              handleDeleteContact={() => handleDeleteContact(contact.id)}
+            />
           ))}
         </ListItems>
       ) : (
-        <Text>Phonebook is empty.
-        Add your first contact!</Text>
+        <Text>Phonebook is empty. Add your first contact!</Text>
       )}
     </>
   );

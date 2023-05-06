@@ -29,13 +29,12 @@ class ContactForm extends Component {
 
     const id = nanoid();
     const contact = { name, number, id };
-    this.props.onSubmit(contact); // виклик функції з пропсів
+    this.props.onSubmit(contact);
     this.setState({
       name: '',
       number: '',
     });
-};
-
+  };
 
   render() {
     const { name, number } = this.state;
@@ -71,6 +70,9 @@ class ContactForm extends Component {
   }
 }
 
+export default ContactForm;
+
+
 ContactForm.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
@@ -81,5 +83,3 @@ ContactForm.propTypes = {
   ).isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
-
-export default ContactForm;
