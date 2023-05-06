@@ -9,7 +9,7 @@ export const Container = styled.div`
     background-color: #2F303A;
     color: white;
     margin-top: 50px;
-    border-radius: 4px;
+    border-radius: 6px;
     box-shadow: 0px 6px 40px rgba(0, 0, 0, 0.2);
 `;
 
